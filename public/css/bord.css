@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.bord{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    width: 69.2%;
+    height: 70vh;
+}
+.person{
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    margin-top: -10vh;
+    color: #0D0B68;
+}
+.nom{
+    width: 100%;
+}
+.esta{
+    display: flex;
+    flex-wrap: wrap;
+    width: 23%;
+    height: 65vh;
+    box-shadow: 2px 2px 2px 2px black;
+}
+.esta1{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    color: white;
+    font-size: 21px;
+    background-color: #958800;
+
+}
+.esta3{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    color: white;
+    font-size: 21px;
+    background-color:#300665;
+
+}
+.esta4{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    color: white;
+    font-size: 21px;
+    background-color: #957000;
+
+}
+.esta5{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    color: white;
+    font-size: 21px;
+    background-color:#0D0B68;
+
+}
+.esta2{
+    width: 100%;
+    height: 45vh;
+}
+i.icone{
+    font-size: 60px;
+}
+.ic1{
+    color: #957000;
+    font-size: 3vh;
+    animation: .8s tilt-shaking infinite alternate;
+}

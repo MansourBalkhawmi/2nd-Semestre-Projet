@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.creer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    width: 69.2%;
+    height: 80vh;
+}
+form{
+    padding: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width:80vh;
+    height: 82vh;
+    color: black;
+}
+h1{
+    color: #0D0B68;
+}
+.matri{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 77%;
+    height: 8vh;
+    background-color: #0D0B68;
+
+}
+.matri1{
+    width:75%;
+    height: 4.5vh;
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000;
+    border:1px solid#000000;
+}
+.sear{
+    color: #ffffff;
+    font-size: 4vh;
+}
+.sear:hover{
+    color: #987000;
+}
+form input{
+    width:60vh;
+    height: 5.5vh;
+    background-color: #ffffff;
+    border: 3px solid #957000;
+}
+form label{
+    color: #0D0B68;
+    font-size: 20px;
+}
+.form_input2{
+    width:60vh;
+    height: 10vh;
+}
+    .form_input{
+        display: flex;
+        flex-wrap: wrap;
+        width:60vh;
+    }
+    .form_input1{
+        color: black;
+        font-size: 18px;
+        width:60vh;
+        margin: 2px;
+    }
+    .form_input1 input{
+        color: black;
+        width:5vh;
+        height: 2vh;
+    }
+form button{
+    margin: 2px;
+    width: 40vh;
+    height: 6vh;
+    background-color: #0D0B68;
+    color: white;
+    font-size: 22px;
+}
+main{
+    color: red;
+    margin: 1px;
+}
+.succes{
+    color: green;
+    font-size: 5vh;
+    animation: .8s tilt-shaking infinite alternate;
+}
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }

@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.creer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    width: 69.2%;
+    height: 80vh;
+}
+form{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width:80vh;
+    height: 89vh;
+}
+h1{
+    color: #0D0B68;
+    font-size: 22px;
+}
+form .input{
+    width:60vh;
+    height: 5vh;
+    background-color: #d5d5d5;
+    border: 2px solid;
+    margin: 2px;
+}
+form label{
+    color: #0D0B68;
+    font-size: 20px;
+}
+.form_input{
+    display: flex;
+    flex-wrap: wrap;
+    width:60vh;
+}
+.form_input1{
+    color: black;
+    font-size: 18px;
+    width:60vh;
+    margin: 2px;
+}
+.form_input1 input{
+    color: black;
+    width:5vh;
+    height: 2vh;
+}
+form button{
+    margin-top: 3vh;
+    width: 40vh;
+    height: 6vh;
+    background-color: #0D0B68;
+    color: white;
+    font-size: 22px;
+}
+main{
+    color: red;
+    margin: 1px;
+}
+.succes{
+    color: green;
+    font-size: 5vh;
+    animation: .8s tilt-shaking infinite alternate;
+}
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }

@@ -1,0 +1,23 @@
+[
+    {
+        "nomcomplet": "Demba Ndoye",
+        "email": "passer@gmail.com",
+        "password": "123",
+        "id": "632833c3abc08",
+        "role": "ROLE_Admin"
+    },
+    {
+        "nomcomplet": "Mansour Niang",
+        "email": "mansouryathi@gmail.com",
+        "password": "passer12",
+        "id": "6328352e4437a",
+        "role": "ROLE_Admin"
+    },
+    {
+        "nomcomplet": "Passer",
+        "email": "passe@gmail.com",
+        "password": "passer@123",
+        "id": "63288061aac28",
+        "role": "ROLE_attach\u00e9"
+    }
+]
