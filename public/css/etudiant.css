@@ -111,3 +111,8 @@ main{
     75% { transform: rotate(-5deg); }
     100% { transform: rotate(0deg); }
   }
+  .bt{
+    background-color: #0D0B68;
+    width: 4vh;
+    border: none;
+}

@@ -15,17 +15,19 @@
      <?php if(!empty($demandes)): ?>
             <table>
                 <tr>
+                    <th>Proprieté</th>
                     <th>Motif</th>
                     <th>Etat</th>
                     <th>Date</th>
                 </tr>
                 <?php foreach ($demandes as $key => $val):?>
                     <tr>
+                        <td><?php echo $val['etudiant'];?></td>
                         <td><?php echo $val['motif'];?></td>
                         <td><?php echo $val['etat'];?></td>
                         <td><?php echo $val['date'];?></td>
                     </tr>
-                <?php endforeach;?>
+                    <?php endforeach;?>
             </table>
          <?php endif;?>
 </div>

@@ -1,15 +1,1 @@
-[
-    {
-        "nom_complet": "Niang Mansour",
-        "telephone": "+221776541090",
-        "adresse": "M\u00e9dina Fall pr\u00e8s du parking",
-        "sexe": "Masculin",
-        "anneescolaire": "2024-2025",
-        "classe": [
-            "DEV WEB2"
-        ],
-        "date": "2022-09-25 20:39:13",
-        "matricule": "6330bc7159421",
-        "id": "6330bc31ad831"
-    }
-]
+[{"nom_complet":"Niang Mansour","telephone":"+221776541090","adresse":"M\u00e9dina Fall pr\u00e8s du parking","sexe":"Masculin","anneescolaire":"2023-2024","classe":["L2 DEV WEB"],"date":"2022-09-26 15:59:53","matricule":"6331cc798c46a","id":"6331777a1382c"},{"nom_complet":"Aminata Mbaye","telephone":"77 545 26 37","adresse":"Dakar, Dieupeul","sexe":"Feminin","anneescolaire":"2023-2024","classe":["L1 MD"],"date":"2022-09-26 11:02:22","matricule":"633186be29054","id":"633185bc360a9"},{"nom_complet":"Mb\u00e9ne K\u00e9b\u00e9","telephone":"78 534 84 36","adresse":"Parselle U25","sexe":"Feminin","anneescolaire":"2023-2024","classe":["DEV WEB2"],"date":"2022-09-26 12:07:33","matricule":"633196053227c","id":"6331960532280"}]

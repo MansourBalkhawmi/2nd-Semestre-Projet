@@ -26,14 +26,6 @@ function get_etudiant_by_id(string $id) {
         }
     }
 }
-function get_etudiant_by_matricule(string $matricule) {
-    $etudiants = get_list_etudiant();
-    foreach ($etudiants as $key => $valu) {
-        if($valu['matricule'] == $matricule) {
-            return $valu;
-        }
-    }
-}
 
 function get_file_etudiant() {
     $json = file_get_contents(ROUTE_DIR.'data/etudiant.data.json');
@@ -62,11 +54,27 @@ function delete_etudiant(string $id):bool{
     return $yes;
      
 }
+function get_list_etudiant_by_matricule($matricule) {
+    $etudiants = get_file_etudiant();
+    $etudiantsTemp = [];
+    if (!isset($etudiants)) {
+        $etudiants = [];
+    } else {
+        foreach ($etudiants as $key => $value) {
+            if($value["matricule"] == $matricule) {
+                array_push($etudiantsTemp, $value);
+            }
+        }
+    }
+
+    return $etudiantsTemp;
+}
 
 function modification_etudiant(array $etudiant){
     $modif_etudiant = get_file_etudiant();
     foreach ($modif_etudiant as $key => $value) {
         if($value['id'] == $etudiant['id']){
+        
             $modif_etudiant[$key] = $etudiant;
         }
     }

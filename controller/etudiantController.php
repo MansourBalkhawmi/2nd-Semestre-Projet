@@ -9,13 +9,14 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
             $classes = get_list_classe();
             require_once(ROUTE_DIR.'vue/ATTACHE/inscrireetudiant1.html.php');
         }elseif ($_GET['view'] == "listeretudiant") {
+            $etudiants = get_list_etudiant();
             $etudiants = [];
             if(isset($_GET["matricule"])) {
-                $etudiants = get_etudiant_by_matricule($_GET["matricule"]);
-            } else {
+                $etudiants = get_list_etudiant_by_matricule($_GET["matricule"]);
+            }else {
                 $etudiants = get_list_etudiant();
             }
-            require_once(ROUTE_DIR.'vue/ATTACHE/listeretudiant.html.php');
+             require_once(ROUTE_DIR.'vue/ATTACHE/listeretudiant.html.php');
         }elseif ($_GET['view'] == "deletee") {
             if(isset($_GET['id'])){
                 delete_etudiant($_GET['id']);
@@ -53,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
 
                 if (empty($arrayError)) {
                    
-                    if($data['id']['matricule'] != ""){
+                    if($data['id'] != ""){
                         $etudiant = [
                             "nom_complet" => $nom_complet,
                             "telephone" => $telephone,
@@ -66,6 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
                             "id" =>$id,
                         ];
                         modification_etudiant($etudiant);
+                      
                     }else{
                         $etudiant = [
                         "nom_complet" => $nom_complet,
@@ -74,6 +76,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
                         "sexe" => $sexe,
                         "anneescolaire" => $anneescolaire,
                         "classe" => $classe,
+                        "demande" => $demande,
                         "date" => date('Y-m-d H:i:s'),
                         "matricule" =>uniqid(),
                         "id" =>uniqid(),
@@ -81,8 +84,8 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
                     addEtudiant($etudiant);
                     }
                     
+                    
                     header("location:".WEB_ROUTE."?controller=etudiantController&view=listeretudiant");
-                   
                 } else {
                     $_SESSION['arrayError'] = $arrayError;
                     header("location:".WEB_ROUTE."?controller=etudiantController&view=inscrireetudiant");

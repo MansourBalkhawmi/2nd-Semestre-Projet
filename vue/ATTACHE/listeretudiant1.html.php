@@ -14,9 +14,7 @@
     <h1>Liste Etudiant</h1>
     <form action="<?= WEB_ROUTE?>" method="post" class="form">
         <div class="matri">
-    <input type="hidden" name="controller" value="etudiantController">
-    <input type="hidden" name="action" value="search">
-<input class="matri1" type="text" name="matricule" placeholder="Saisir le Matricule" id=""><button type="submit" name="search" ><i class=" sear fa-sharp fa-solid fa-magnifying-glass"></i></button>
+<input class="matri1" type="text" name="matricule" placeholder="Saisir le Matricule" id=""> <a href="<?= WEB_ROUTE.'/?controller=etudiantController&view=matri&matricule='.$val['matricule']?>"><i class=" sear fa-sharp fa-solid fa-magnifying-glass"></i></a>
 </div>
 </form>
      <?php if(!empty($etudiants)): ?>
@@ -24,7 +22,9 @@
                 <tr>
                     <th>Matricule</th>
                     <th>Nom complet Etudiant</th>
-                    <th>class</th>
+                    <th>Adresse</th>
+                    <th>Telephone</th>
+                    <th>Classe</th>
                     <th>Genre</th>
                     <th>Année Scolaire</th>
                     <th>Date d'inscription</th>
@@ -35,6 +35,8 @@
                     <tr>
                         <td><?php echo $val['matricule'];?></td>
                         <td><?php echo $val['nom_complet'];?></td>
+                        <td><?php echo $val['adresse'];?></td>
+                        <td><?php echo $val['telephone'];?></td>
                         <td><?php foreach ($val['classe'] as $key => $clas):?><?php echo $clas?>-<?php endforeach;?></td>
                             <td><?php echo $val['sexe'];?></td>
                             <td><?php echo $val['anneescolaire'];?></td>

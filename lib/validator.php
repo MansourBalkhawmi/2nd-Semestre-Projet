@@ -63,6 +63,12 @@ function valid_champ_select3(array &$arrayError, $str, string $key) {
         $arrayError[$key] = "Choisit l'etat du demande";
     }
 }
+function valid_champ_select4(array &$arrayError, $str, string $key) {
+    $valeur=str_replace(" ","",$str);
+    if (est_vide($valeur)) {
+        $arrayError[$key] = "Choisit l'étudiant";
+    }
+}
  function valideEmail(array &$arrayError, $email, string $key){
    // $email=str_replace(" ","",$str);
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

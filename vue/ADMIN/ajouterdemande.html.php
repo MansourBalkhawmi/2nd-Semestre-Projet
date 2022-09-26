@@ -56,6 +56,16 @@ if (isset($_SESSION['arrayError'])) {
   </select>
   <main><?php echo isset($arrayError['etat']) ? $arrayError['etat'] : '' ?></main>
 </div>
+<div class="form_input1">
+    <label for="" >Proprieté du Demande</label> 
+    <select name="etudiant" id="" >
+    <option value="Choisir"> Choisir l'étudiant</option>
+    <?php foreach ($etudiants as $key => $etu):?>
+    <option value="<?=$etu['nom_complet']?>"><?php echo $etu['nom_complet']?></option>
+    <?php endforeach?>
+  </select>
+  <main><?php echo isset($arrayError['etudiant']) ? $arrayError['etudiant'] : '' ?></main>
+</div>
 <button type="submit">Création</button>
 </form>
 </div>

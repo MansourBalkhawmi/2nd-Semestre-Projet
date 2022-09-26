@@ -25,9 +25,11 @@ if (isset($_SESSION['arrayError'])) {
 		<input type="hidden" name="controller" value="etudiantController">
         <input type="hidden" name="action" value="inscrit">
         <input type="hidden" name="id" value="<?=isset($etudiant['id']) ? $etudiant['id'] : '' ?>">
+        
+
 <h1>Inscription</h1>
 <div class="matri">
-<input class="matri1" type="text" name="" placeholder="Saisir le Matricule" id=""><a href="#"><i class=" sear fa-sharp fa-solid fa-magnifying-glass"></i></a>
+<input class="matri1" type="text" name="search" placeholder="Saisir le Matricule" id=""><button class="bt"><i class=" sear fa-sharp fa-solid fa-magnifying-glass"></i></button>
 </div>
 <div class="form_input">
     <label for="" >Nom Complet Etudiant</label>
