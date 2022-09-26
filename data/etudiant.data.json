@@ -1,1 +1,15 @@
-[{"nom_complet":"Niang Mansour","telephone":"+221776541090","adresse":"M\u00e9dina Fall pr\u00e8s du parking","anneescolaire":"2022-2023","classe":["DEV WEB"],"date":"2022-09-23 14:09:42","matricule":"632dbe26a97a4","id":"632dbe26a97a6"},{"nom_complet":"Abdoulaye Fall","telephone":"77 524 85 69","adresse":"Dakar,Bourguiba","anneescolaire":"2023-2024","classe":["MarkDigit"],"date":"2022-09-23 14:11:01","matricule":"632dbe75010e1","id":"632dbe75010e4"},{"nom_complet":"Mouhamed Fall","telephone":"76 302 50 46","adresse":"Saint-Luis","anneescolaire":"2023-2024","classe":["Cellule Information"],"date":"2022-09-23 18:33:32","matricule":"632dfbfe1b315","id":"632dfbfe1b31a"}]
+[
+    {
+        "nom_complet": "Niang Mansour",
+        "telephone": "+221776541090",
+        "adresse": "M\u00e9dina Fall pr\u00e8s du parking",
+        "sexe": "Masculin",
+        "anneescolaire": "2024-2025",
+        "classe": [
+            "DEV WEB2"
+        ],
+        "date": "2022-09-25 20:39:13",
+        "matricule": "6330bc7159421",
+        "id": "6330bc31ad831"
+    }
+]

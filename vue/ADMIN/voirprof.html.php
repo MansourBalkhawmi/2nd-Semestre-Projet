@@ -29,7 +29,7 @@
                         <td><?php foreach ($val['module'] as $key => $mod):?><?php echo $mod?>-<?php endforeach;?></td>
                             <td>
                         <a href="<?= WEB_ROUTE.'/?controller=classeController&view=editep&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square"></i></a>
-                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=deletedp&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=deletep&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                 

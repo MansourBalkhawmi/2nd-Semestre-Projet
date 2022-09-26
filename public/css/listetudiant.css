@@ -24,8 +24,9 @@ h1{
     text-align: center;
 }
 table{
+    font-size: 14px;
     border: 1px solid;
-    width: 70%;
+    width: 85%;
     border-collapse: collapse;
 }
 tr{
@@ -67,4 +68,12 @@ td{
 button{
     background-color: #957000;
     border: none;
+}
+.es{
+    color: green ;
+    font-size: 2vh;
+}
+.es1{
+    color: red ;
+    font-size: 2vh;
 }

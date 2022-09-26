@@ -24,27 +24,69 @@ if (isset($_SESSION['arrayError'])) {
 <form method="POST" action="<?php echo WEB_ROUTE ?>">
 		<input type="hidden" name="controller" value="etudiantController">
         <input type="hidden" name="action" value="inscrit">
+        <input type="hidden" name="id" value="<?=isset($etudiant['id']) ? $etudiant['id'] : '' ?>">
 <h1>Inscription</h1>
 <div class="matri">
 <input class="matri1" type="text" name="" placeholder="Saisir le Matricule" id=""><a href="#"><i class=" sear fa-sharp fa-solid fa-magnifying-glass"></i></a>
 </div>
 <div class="form_input">
     <label for="" >Nom Complet Etudiant</label>
-     <input type="text" name="nom_complet" >
+     <input type="text" name="nom_complet" value="<?=isset($etudiant['nom_complet']) ? $etudiant['nom_complet'] : '' ?>" >
      <main><?php echo isset($arrayError['nom_complet']) ? $arrayError['nom_complet'] : '' ?></main>
 </div>
 <div class="form_input">
     <label for="">Téléphone</label>
-     <input type="text" name="telephone" >
+     <input type="text" name="telephone" value="<?=isset($etudiant['telephone']) ? $etudiant['telephone'] : '' ?>" >
      <main><?php echo isset($arrayError['telephone']) ? $arrayError['telephone'] : '' ?></main>
 </div>
 <div class="form_input">
     <label for="">Adresse</label>
-     <input type="text" name="adresse" >
+     <input type="text" name="adresse" value="<?=isset($etudiant['adresse']) ? $etudiant['adresse'] : '' ?>" >
      <main><?php echo isset($arrayError['adresse']) ? $arrayError['adresse'] : '' ?></main>
 </div>
 <div class="form_input2">
+    <label for="" >Genre</label> 
+    <?php if($etudiant["sexe"] == "Masculin"): ?>
+            <select name="sexe" id="sexe">
+           <option value="Masculin"  selected >Masculin</option>
+       </select>
+<?php endif?>
+ <?php if($etudiant["sexe"] == "Feminin"): ?>
+    <select name="sexe" id="sexe" >
+           <option value="Feminin" selected >Feminin</option>
+       </select>
+ <?php endif?>
+    <select name="sexe" id="">
+    <option value="Choisir le genre">Choisir Année</option>
+    <option value="Masculin">Masculin</option>
+    <option value="Feminin">Feminin</option>
+  </select>
+  <main><?php echo isset($arrayError['anneescolaire']) ? $arrayError['anneescolaire'] : '' ?></main>
+</div>
+<div class="form_input2">
     <label for="" >Année Scolaire</label> 
+    <?php if($etudiant["anneescolaire"] == "2022-2023"): ?>
+            <select name="anneescolaire" id="anneescolaire">
+           <option value="2022-2023"  selected >Année en Cours</option>
+       </select>
+<?php endif?>
+ <?php if($etudiant["anneescolaire"] == "2023-2024"): ?>
+    <select name="anneescolaire" id="anneescolaire" >
+           <option value="2023-2024" selected >2023-2024</option>
+          
+       </select>
+ <?php endif?>
+ <?php if($etudiant["anneescolaire"] == "2024-2025"): ?>
+            <select name="anneescolaire" id="anneescolaire">
+           <option value="2024-2025"  selected >2024-2025</option>
+       </select>
+<?php endif?>
+ <?php if($etudiant["anneescolaire"] == "Feminin"): ?>
+    <select name="anneescolaire" id="anneescolaire" >
+           <option value="Feminin" selected >Feminin</option>
+          
+       </select>
+ <?php endif?>
     <select name="anneescolaire" id="">
     <option value="Choisir la Classe">Choisir Année</option>
     <option value="2022-2023">Année en Cours</option>

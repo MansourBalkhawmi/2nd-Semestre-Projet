@@ -24,18 +24,25 @@
                 <tr>
                     <th>Matricule</th>
                     <th>Nom complet Etudiant</th>
-                    <th>Classe</th>
+                    <th>class</th>
+                    <th>Genre</th>
                     <th>Année Scolaire</th>
                     <th>Date D'inscription</th>
+                    <th>Action</th>
                 </tr>
                 <?php foreach ($etudiants as $key => $val):?>
                 <?php foreach ($val['classe'] as $key => $clas):?>
                     <tr>
                         <td><?php echo $val['matricule'];?></td>
                         <td><?php echo $val['nom_complet'];?></td>
-                        <td><?php echo $clas ?></td>
-                        <td><?php echo $val['anneescolaire'];?></td>
+                        <td><?php foreach ($val['classe'] as $key => $clas):?><?php echo $clas?>-<?php endforeach;?></td>
+                            <td><?php echo $val['sexe'];?></td>
+                            <td><?php echo $val['anneescolaire'];?></td>
                         <td><?php echo $val['date'];?></td>
+                        <td>
+                        <a href="<?= WEB_ROUTE.'/?controller=etudiantController&view=editee&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=etudiantController&view=deletee&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash"></i></a>
+                        </td>
                     </tr>
                     <?php endforeach;?>
                 <?php endforeach;?>

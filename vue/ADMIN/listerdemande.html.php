@@ -18,12 +18,17 @@
                     <th>Motif</th>
                     <th>Etat</th>
                     <th>Date</th>
+                    <th>Action</th>
                 </tr>
                 <?php foreach ($demandes as $key => $val):?>
                     <tr>
                         <td><?php echo $val['motif'];?></td>
                         <td><?php echo $val['etat'];?></td>
                         <td><?php echo $val['date'];?></td>
+                        <td>
+                        <a href="<?= WEB_ROUTE.'/?controller=demandeController&view=edite&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square" title="Modification"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=demandeController&view=delete&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash" title="Supprimer"></i></a>
+                        </td>
                     </tr>
                 <?php endforeach;?>
             </table>

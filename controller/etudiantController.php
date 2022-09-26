@@ -11,15 +11,21 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
         }elseif ($_GET['view'] == "listeretudiant") {
             $etudiants = [];
             if(isset($_GET["matricule"])) {
-                $etudiants = get_list_etudiant_by_matricule($_GET["matricule"]);
+                $etudiants = get_etudiant_by_matricule($_GET["matricule"]);
             } else {
                 $etudiants = get_list_etudiant();
             }
             require_once(ROUTE_DIR.'vue/ATTACHE/listeretudiant.html.php');
-        }elseif ($_GET['view'] == "edit") {
-            $user=get_user_by_id($_GET['id']);
+        }elseif ($_GET['view'] == "deletee") {
+            if(isset($_GET['id'])){
+                delete_etudiant($_GET['id']);
+            }
+            header("location:".WEB_ROUTE."?controller=etudiantController&view=listeretudiant");
+        }elseif ($_GET['view'] == "editee") {
+            $classes = get_list_classe();
+            $etudiant=get_etudiant_by_id($_GET['id']);
            
-            require_once(ROUTE_DIR.'vue/accueil.html.php');
+            require_once(ROUTE_DIR.'vue/ATTACHE/inscrireetudiant.html.php');
 
         }
     }
@@ -33,37 +39,49 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
     }
 }
 }
-    function inscrire($inscrire) {
+    function inscrire($data) {
     
         $arrayError = [];
-        extract($inscrire);
+        extract($data);
         
                 valid_champ_user($arrayError, $nom_complet, 'nom_complet');
                 valid_champ($arrayError, $telephone, 'telephone');
                 valid_champ_user($arrayError, $adresse, 'adresse');
                 valid_champ_sele($arrayError, $anneescolaire, 'anneescolaire');
+                valid_champ_sele1($arrayError, $sexe, 'sexe');
                 valid_champ_select1($arrayError, $classe, 'classe');
 
                 if (empty($arrayError)) {
                    
-                    if($data['id'] != ""){
-    
-                        modification($data);
+                    if($data['id']['matricule'] != ""){
+                        $etudiant = [
+                            "nom_complet" => $nom_complet,
+                            "telephone" => $telephone,
+                            "adresse" => $adresse,
+                            "sexe" => $sexe,
+                            "anneescolaire" => $anneescolaire,
+                            "classe" => $classe,
+                            "date" => date('Y-m-d H:i:s'),
+                            "matricule" =>uniqid(),
+                            "id" =>$id,
+                        ];
+                        modification_etudiant($etudiant);
                     }else{
                         $etudiant = [
                         "nom_complet" => $nom_complet,
                         "telephone" => $telephone,
                         "adresse" => $adresse,
+                        "sexe" => $sexe,
                         "anneescolaire" => $anneescolaire,
                         "classe" => $classe,
                         "date" => date('Y-m-d H:i:s'),
                         "matricule" =>uniqid(),
                         "id" =>uniqid(),
                     ];
+                    addEtudiant($etudiant);
                     }
                     
-                    addEtudiant($etudiant);
-                    header("location:".WEB_ROUTE."?controller=etudiantController&view=succes");
+                    header("location:".WEB_ROUTE."?controller=etudiantController&view=listeretudiant");
                    
                 } else {
                     $_SESSION['arrayError'] = $arrayError;

@@ -38,6 +38,13 @@ function valid_champ_sele(array &$arrayError, $str, string $key) {
         }
     
 }
+function valid_champ_sele1(array &$arrayError, $str, string $key) {
+    $valeur=str_replace(" ","",$str);
+    if (est_vide($valeur)) {
+        $arrayError[$key] = "Choisit votre Genre";
+    }
+
+}
 function valid_champ_select1(array &$arrayError, $str, string $key) {
     $valeur=str_replace(" ","",$str);
     if (est_vide($valeur)) {

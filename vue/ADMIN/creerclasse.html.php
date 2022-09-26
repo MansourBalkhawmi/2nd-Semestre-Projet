@@ -24,6 +24,7 @@ if (isset($_SESSION['arrayError'])) {
 <form method="POST" action="<?php echo WEB_ROUTE ?>">
 		<input type="hidden" name="controller" value="classeController">
         <input type="hidden" name="action" value="creer_classe">
+        <input type="hidden" name="id" value="<?=isset($classe['id']) ? $classe['id'] : '' ?>">
 <h1>Créer une Classe</h1>
 <div class="form_input">
     <label for="" >Libellé</label>

@@ -56,11 +56,11 @@ function delete_module(string $id):bool{
 }
 
 function modification_module(array $module){
-    $modif = get_file_module();
-    foreach ($modif as $key => $value) {
+    $modif_module = get_file_module();
+    foreach ($modif_module as $key => $value) {
         if($value['id'] == $module['id']){
-            $modif[$key] = $module;
+            $modif_module[$key] = $module;
         }
     }
-    ajouter_fichier_module($modif);
+    ajouter_fichier_module($modif_module);
 }

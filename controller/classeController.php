@@ -32,20 +32,30 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
                 delete_classe($_GET['id']);
             }
             header("location:".WEB_ROUTE."?controller=classeController&view=listerclasse");
-        } elseif ($_GET['view'] == "edite") {
+        }elseif ($_GET['view'] == "edite") {
             $classe=get_classe_by_id($_GET['id']);
            
             require_once(ROUTE_DIR.'vue/ADMIN/creerclasse.html.php');
 
-        }elseif ($_GET['view'] == "deletedp") {
+        }elseif ($_GET['view'] == "deletedm") {
+            if(isset($_GET['id'])){
+                delete_module($_GET['id']);
+            }
+            header("location:".WEB_ROUTE."?controller=classeController&view=voiremodule");
+        }  elseif ($_GET['view'] == "editem") {
+            $module=get_module_by_id($_GET['id']);
+           
+            require_once(ROUTE_DIR.'vue/ADMIN/ajoutermodule.html.php');
+
+        }elseif ($_GET['view'] == "deletep") {
             if(isset($_GET['id'])){
                 delete_prof($_GET['id']);
             }
             header("location:".WEB_ROUTE."?controller=classeController&view=voirprof");
         } elseif ($_GET['view'] == "editep") {
-            $prof=get_prof_by_id($_GET['id']);
             $classes = get_list_classe();
             $modules = get_list_module();
+            $prof=get_prof_by_id($_GET['id']);
            
             require_once(ROUTE_DIR.'vue/ADMIN/ajouterprof.html.php');
 
@@ -63,18 +73,19 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
 }
 }
 
-    function Creer($Creer) {
+    function Creer($data) {
     
         $arrayError = [];
-        extract($Creer);
+        extract($data);
         
                 valid_champ_user($arrayError, $libelle, 'libelle');
                 valid_champ_user($arrayError, $filiere, 'filiere');
                 valid_champ_user($arrayError, $niveau, 'niveau');
+
                 if (empty($arrayError)) {
                    
                     if($data['id'] != ""){
-    
+                     
                         modification_classe($data);
                     }else{
                         $classe = [
@@ -83,22 +94,22 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
                         "niveau" => $niveau,
                         "id" =>uniqid(),
                     ];
-                    }
-                    
                     addClasse($classe);
-                    header("location:".WEB_ROUTE."?controller=classeController&view=succes");
-                   
+                    }
+    
+                    header("location:".WEB_ROUTE."?controller=classeController&view=listerclasse");
+                    
                 } else {
                     $_SESSION['arrayError'] = $arrayError;
-                    header("location:".WEB_ROUTE."?controller=classeController&view=creerclasse");
+                header("location:".WEB_ROUTE."?controller=classeController&view=creerclasse");
                 }
                 
             }
 
-function Ajoutermodule($Ajoutermodule) {
+function Ajoutermodule($data) {
             
                 $arrayError = [];
-                extract($Ajoutermodule);
+                extract($data);
                 
                         valid_champ_user($arrayError, $libelmodule, 'libelmodule');
                         if (empty($arrayError)) {
@@ -112,10 +123,10 @@ function Ajoutermodule($Ajoutermodule) {
                                 "libelmodule" => $libelmodule,
                                 "id" =>uniqid(),
                             ];
+                            addModule($module);
                             }
                             
-                            addModule($module);
-                            header("location:".WEB_ROUTE."?controller=classeController&view=succes1");
+                            header("location:".WEB_ROUTE."?controller=classeController&view=voiremodule");
                            
                         } else {
                             $_SESSION['arrayError'] = $arrayError;
@@ -124,10 +135,10 @@ function Ajoutermodule($Ajoutermodule) {
                         
                     }
 
-    function Creer_Prof($Creer_Prof) {
+    function Creer_Prof($data) {
                     
                         $arrayError = [];
-                        extract($Creer_Prof);
+                        extract($data);
                         
                                 valid_champ_user($arrayError, $Nom_complet, 'Nom_complet');
                                 valid_champ_select($arrayError, $grade, 'grade');
@@ -135,14 +146,9 @@ function Ajoutermodule($Ajoutermodule) {
                                 valid_champ_select2($arrayError, $module, 'module');
                                 if (empty($arrayError)) {
                                    
-                                    if($Creer_Prof['id']=$prof['id'] != ""){
-                                        $prof = [
-                                            "Nom_complet" => $Nom_complet,
-                                            "grade" => $grade,
-                                            "classe" => $classe,
-                                            "module" => $module,
-                                        ];
-                                        modification_prof($prof);
+                                    if($data['id'] != ""){
+                        
+                                        modification_prof($data);
                                     }else{
                                         $prof = [
                                         "Nom_complet" => $Nom_complet,
@@ -151,10 +157,10 @@ function Ajoutermodule($Ajoutermodule) {
                                         "module" => $module,
                                         "id" =>uniqid(),
                                     ];
+                                    addProf($prof);
                                     }
                                     
-                                    addProf($prof);
-                                    header("location:".WEB_ROUTE."?controller=classeController&view=succes2");
+                                    header("location:".WEB_ROUTE."?controller=classeController&view=voirprof");
                                    
                                 } else {
                                     $_SESSION['arrayError'] = $arrayError;

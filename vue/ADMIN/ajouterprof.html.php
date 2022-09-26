@@ -33,12 +33,33 @@ if (isset($_SESSION['arrayError'])) {
 </div>
 <div class="form_input">
     <label for="" >Grade</label> 
+    <?php if($prof["grade"] == "BFEM"): ?>
+            <select name="grade" id="grade">
+           <option value="BFEM"  selected >BFEM</option>
+       </select>
+<?php endif?>
+ <?php if($prof["grade"] == "BAC"): ?>
+    <select name="grade" id="grade" >
+           <option value="BAC" selected >BAC</option>
+          
+       </select>
+ <?php endif?>
+ <?php if($prof["grade"] == "BAC+3"): ?>
+    <select name="grade" id="grade">
+           <option value="BAC+3"selected>BAC+3</option>
+       </select>
+  <?php endif?>
+  <?php if($prof["grade"] == "BAC+5"): ?>
+    <select name="grade" id="grade">
+           <option value="BAC+5"selected>BAC+5</option>
+       </select>
+  <?php endif?>
     <select name="grade" id="">
     <option value="Choisir la Classe">Choisir grade</option>
-    <option value="BFEM" selected>BFEM</option>
-    <option value="BAC" selected>BAC</option>
-    <option value="BAC+3" selected>BAC+3</option>
-    <option value="BAC+5" selected>BAC+5</option>
+    <option value="BFEM" >BFEM</option>
+    <option value="BAC" >BAC</option>
+    <option value="BAC+3" >BAC+3</option>
+    <option value="BAC+5" >BAC+5</option>
   </select><br>
   <main><?php echo isset($arrayError['grade']) ? $arrayError['grade'] : '' ?></main>
 </div>
@@ -53,7 +74,7 @@ if (isset($_SESSION['arrayError'])) {
 </div>
 <div class="form_input1">
     <label for="">Module du Prof</label> <br>
-    <?php foreach ($modules as $key => $val):?>
+    <?php foreach ($modules as $key => $val):?> 
         <?php echo $val['libelmodule'];?>
      <input type="checkbox" name="module[]" value="<?=$val['libelmodule'];?>" id=""><br>
 

@@ -23,19 +23,36 @@ if (isset($_SESSION['arrayError'])) {
 <form method="POST" action="<?php echo WEB_ROUTE ?>">
 		<input type="hidden" name="controller" value="demandeController">
         <input type="hidden" name="action" value="demande">
+        <input type="hidden" name="id" value="<?=isset($demande['id']) ? $demande['id'] : '' ?>">
 <h1>Ajouter Demande</h1>
 <div class="form_input">
     <label for="" >Motif</label>
-     <textarea name="motif" id="" cols="30" rows="10"></textarea>
+     <textarea name="motif" id="" cols="30" rows="10"><?=isset($demande['motif']) ? $demande['motif'] : ''?></textarea>
      <main><?php echo isset($arrayError['motif']) ? $arrayError['motif'] : '' ?></main>
 </div>
 <div class="form_input1">
     <label for="" >Etat Demande</label> 
-    <select name="etat" id="">
-    <option value="Choisir l'eta">Choisir l'Etat</option>
-    <option value="Accepter">Accepter</option>
-    <option value="En Traitement">En Traitement</option>
-    <option value="Refuser">Refuser</option>
+    <?php if($demande["etat"] == "Accepter"): ?>
+            <select name="etat" id="etat">
+           <option value="Accepter"  selected >Accepter</option>
+       </select>
+<?php endif?>
+ <?php if($demande["etat"] == "En Traitement"): ?>
+    <select name="etat" id="etat" >
+           <option value="Traitement" selected >Traitement</option>
+          
+       </select>
+ <?php endif?>
+ <?php if($demande["etat"] == "Refuser"): ?>
+    <select name="etat" id="etat">
+           <option value="Refuser"selected>Refuser</option>
+       </select>
+  <?php endif?>
+    <select name="etat" id="" >
+    <option value="Choisir l'etat">Choisir l'Etat</option>
+    <option value="Accepter" >Accepter</option>
+    <option value="Traitement" >Traitement</option>
+    <option value="Refuser" >Refuser</option>
   </select>
   <main><?php echo isset($arrayError['etat']) ? $arrayError['etat'] : '' ?></main>
 </div>

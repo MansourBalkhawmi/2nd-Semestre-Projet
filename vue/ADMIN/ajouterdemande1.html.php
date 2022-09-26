@@ -23,6 +23,7 @@ if (isset($_SESSION['arrayError'])) {
 <form method="POST" action="<?php echo WEB_ROUTE ?>">
 		<input type="hidden" name="controller" value="demandeController">
         <input type="hidden" name="action" value="demande">
+        
 <h1>Ajouter Demande <i class="succes fa-sharp fa-solid fa-thumbs-up"></i></h1>
 <div class="form_input">
     <label for="" >Motif</label>
@@ -32,8 +33,8 @@ if (isset($_SESSION['arrayError'])) {
 <div class="form_input1">
     <label for="" >Etat Demande</label> 
     <select name="etat" id="">
-    <option value="Choisir l'eta">Choisir l'Etat</option>
-    <option value="Accepter">Accepter</option>
+    <option value="Choisir l'eta" >Choisir l'Etat</option>
+    <option value="Accepter" >Accepter</option>
     <option value="En Traitement">En Traitement</option>
     <option value="Refuser">Refuser</option>
   </select>

@@ -14,9 +14,9 @@ function get_list_demande() {
     if (!isset($demandes)) {
         $demandes = [];
     }
-
+ 
     return $demandes;
-}
+ }
 
 function get_demande_by_id(string $id) {
     $demandes = get_list_demande();
@@ -56,11 +56,11 @@ function delete_demande(string $id):bool{
 }
 
 function modification_demande(array $demande){
-    $modif = get_file_demande();
-    foreach ($modif as $key => $value) {
+    $modif_demande = get_file_demande();
+    foreach ($modif_demande as $key => $value) {
         if($value['id'] == $demande['id']){
-            $modif[$key] = $demande;
+            $modif_demande[$key] = $demande;
         }
     }
-    ajouter_fichier_demande($modif);
+    ajouter_fichier_demande($modif_demande);
 }

@@ -23,10 +23,11 @@ if (isset($_SESSION['arrayError'])) {
 <form method="POST" action="<?php echo WEB_ROUTE ?>">
 		<input type="hidden" name="controller" value="classeController">
         <input type="hidden" name="action" value="ajouter_module">
+        <input type="hidden" name="id" value="<?=isset($module['id']) ? $module['id'] : '' ?>">
 <h1>Ajouter un Module</h1>
 <div class="form_input">
     <label for="" >Libellé</label>
-     <input type="text" name="libelmodule" >
+     <input type="text" name="libelmodule" value="<?=isset($module['libelmodule']) ? $module['libelmodule'] : '' ?>" >
      <main><?php echo isset($arrayError['libelmodule']) ? $arrayError['libelmodule'] : '' ?></main>
 </div>
 <button type="submit">Création</button>

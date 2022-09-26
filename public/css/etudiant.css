@@ -26,7 +26,7 @@ form{
     align-items: center;
     justify-content: center;
     width:80vh;
-    height: 82vh;
+    height: 88vh;
     color: black;
 }
 h1{
@@ -59,17 +59,17 @@ h1{
 }
 form input{
     width:60vh;
-    height: 5.5vh;
+    height: 4vh;
     background-color: #ffffff;
     border: 3px solid #957000;
 }
 form label{
     color: #0D0B68;
-    font-size: 20px;
+    font-size: 16px;
 }
 .form_input2{
     width:60vh;
-    height: 10vh;
+    height: 5vh;
 }
     .form_input{
         display: flex;
@@ -78,15 +78,15 @@ form label{
     }
     .form_input1{
         color: black;
-        font-size: 18px;
+        font-size: 15px;
         width:60vh;
-        margin: 2px;
     }
     .form_input1 input{
-        color: black;
+        color: black;    
         width:5vh;
         height: 2vh;
     }
+
 form button{
     margin: 2px;
     width: 40vh;

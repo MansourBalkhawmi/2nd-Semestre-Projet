@@ -17,27 +17,20 @@ function get_list_etudiant() {
 
     return $etudiants;
 }
-function get_list_etudiant_by_matricule($matricule) {
-    $etudiants = get_list_etudiant();
-    $etudiantsTemp = [];
-    if (!isset($etudiants)) {
-        $etudiants = [];
-    } else {
-        foreach ($etudiants as $key => $value) {
-            if($value["categorie"] == $matricule) {
-                array_push($etudiantsTemp, $value);
-            }
-        }
-    }
-
-    return $etudiantsTemp;
-}
 
 function get_etudiant_by_id(string $id) {
     $etudiants = get_list_etudiant();
     foreach ($etudiants as $key => $value) {
         if($value['id'] == $id) {
             return $value;
+        }
+    }
+}
+function get_etudiant_by_matricule(string $matricule) {
+    $etudiants = get_list_etudiant();
+    foreach ($etudiants as $key => $valu) {
+        if($valu['matricule'] == $matricule) {
+            return $valu;
         }
     }
 }
@@ -71,11 +64,11 @@ function delete_etudiant(string $id):bool{
 }
 
 function modification_etudiant(array $etudiant){
-    $modif = get_file_etudiant();
-    foreach ($modif as $key => $value) {
+    $modif_etudiant = get_file_etudiant();
+    foreach ($modif_etudiant as $key => $value) {
         if($value['id'] == $etudiant['id']){
-            $modif[$key] = $etudiant;
+            $modif_etudiant[$key] = $etudiant;
         }
     }
-    ajouter_fichier_etudiant($modif);
+    ajouter_fichier_etudiant($modif_etudiant);
 }

@@ -17,11 +17,16 @@
                 <tr>
                     <th>id-Module</th>
                     <th>Libellé du Module</th>
+                    <th>Action</th>
                 </tr>
                 <?php foreach ($modules as $key => $val):?>
                     <tr>
                         <td><?php echo $val['id'];?></td>
                         <td><?php echo $val['libelmodule'];?></td>
+                        <td>
+                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=editem&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square" title="Modification"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=deletedm&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash" title="Supprimer"></i></a>
+                        </td>
                     </tr>
                 <?php endforeach;?>
             </table>

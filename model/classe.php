@@ -12,7 +12,7 @@ function addClasse(array $classe) {
 function get_list_classe() {
     $classes = get_file_classe();
     if (!isset($classes)) {
-        $Questions = [];
+        $classes = [];
     }
  
     return $classes;
@@ -56,11 +56,11 @@ function delete_classe(string $id):bool{
 }
 
 function modification_classe(array $classe){
-    $modif = get_file_classe();
-    foreach ($modif as $key => $value) {
+    $modif_classe = get_file_classe();
+    foreach ($modif_classe as $key => $value) {
         if($value['id'] == $classe['id']){
-            $modif[$key] = $classe;
+            $modif_classe[$key] = $classe;
         }
     }
-    ajouter_fichier_classe($modif);
+    ajouter_fichier_classe($modif_classe);
 }

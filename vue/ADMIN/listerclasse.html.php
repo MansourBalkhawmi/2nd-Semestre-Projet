@@ -26,8 +26,8 @@
                         <td><?php echo $val['filiere'];?></td>
                         <td><?php echo $val['niveau'];?></td>
                         <td>
-                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=edite&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square"></i></a>
-                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=deleted&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=edite&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square" title="Modification"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=deleted&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash" title="Supprimer"></i></a>
                         </td>
                     </tr>
                 <?php endforeach;?>

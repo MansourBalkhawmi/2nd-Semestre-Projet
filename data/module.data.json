@@ -1,1 +1,1 @@
-[{"libelmodule":"PHP","id":"632c1e102f773"},{"libelmodule":"JAVA script","id":"632cae9f37831"},{"libelmodule":"Bureautique","id":"632da6ccefb7a"},{"libelmodule":"Architecture","id":"632da70c57295"}]
+[{"controller":"classeController","action":"ajouter_module","id":"632c1e102f773","libelmodule":"PHP"},{"libelmodule":"JAVA script","id":"632cae9f37831"},{"libelmodule":"Bureautique","id":"632da6ccefb7a"}]

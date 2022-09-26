@@ -7,35 +7,46 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
         } elseif ($_GET['view'] == "listerdemande") {
             $demandes= get_list_demande();
             require_once(ROUTE_DIR.'vue/ADMIN/listerdemande.html.php');
-        }elseif ($_GET['view'] == "succes") {
-            require_once(ROUTE_DIR.'vue/ADMIN/ajouterdemande1.html.php');
         }elseif ($_GET['view'] == "1listerdemande") {
             $demandes= get_list_demande();
             require_once(ROUTE_DIR.'vue/ATTACHE/listerdemande.html.php');
-        }elseif ($_GET['view'] == "edit") {
-           
-
+        }elseif ($_GET['view'] == "edite") {
+            $demande=get_demande_by_id($_GET['id']);
+            require_once(ROUTE_DIR.'vue/ADMIN/ajouterdemande.html.php');
+        }elseif ($_GET['view'] == "delete") {
+            if(isset($_GET['id'])){
+                delete_demande($_GET['id']);
+            }
+            header("location:".WEB_ROUTE."?controller=demandeController&view=listerdemande");
         }
     }
 } elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['action'])) {
-       if ($_POST['action'] == "demande") {
-        demandeajou($_POST);
+        if ($_POST['action'] == "demande") {
+            demandeajou($_POST);
+        }
     }
 }
-}
 
-function demandeajou($demandeajou) {          
+
+function demandeajou($data) {          
 $arrayError = [];
-extract($demandeajou);
+extract($data);
                 
-                        valid_champ_user($arrayError, $motif, 'motif');
-                        valid_champ_select3($arrayError, $etat, 'etat');
+                        valid_champ_user($arrayError, $motif,'motif');
+                        valid_champ_select3($arrayError, $etat,'etat');
+
                         if (empty($arrayError)) {
                            
                             if($data['id'] != ""){
-            
-                                modification($data);
+                                $demande = [
+                                    "motif" => $motif,
+                                    "etat" => $etat,
+                                    "date" => date('Y-m-d H:i:s'),
+                                    "id" =>$id,
+                                ];
+                                modification_demande($demande);
+                              
                             }else{
                                 $demande = [
                                 "motif" => $motif,
@@ -43,10 +54,10 @@ extract($demandeajou);
                                 "date" => date('Y-m-d H:i:s'),
                                 "id" =>uniqid(),
                             ];
-                            }
-                            
                             addDemande($demande);
-                            header("location:".WEB_ROUTE."?controller=demandeController&view=succes");
+                        }
+                        
+                       header("location:".WEB_ROUTE."?controller=demandeController&view=listerdemande");
                            
                         } else {
                             $_SESSION['arrayError'] = $arrayError;
