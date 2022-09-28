@@ -30,6 +30,35 @@
                     <?php endforeach;?>
             </table>
          <?php endif;?>
+         <div  class="pagination">
+   <?php for($i = 1; $i <= $totalPage; $i++):?>
+       <a href="<?= WEB_ROUTE.'/?controller=demandeController&view=1listerdemande&page='.$i.''?>">
+     <button class="mm"><?php echo $i; ?></button> 
+   </a>
+       <?php endfor;?>
+
+       </div>
+       </div>  
+       <style>
+        .mm{
+       width: 5vh;
+       background-color: #957000;
+       color:black;
+       margin: 5px;
+        } 
+        .mm:hover{
+       background-color: #0D0B68;
+       color:#ffffff;
+       margin: 5px;
+        } 
+        .pagination{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+       </style>
 </div>
 </body>
 </html>

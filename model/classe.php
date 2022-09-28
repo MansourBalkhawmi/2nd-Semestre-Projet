@@ -64,3 +64,38 @@ function modification_classe(array $classe){
     }
     ajouter_fichier_classe($modif_classe);
 }
+
+function getListToDisplay(array $arrayPersonne, $page, $taillePage) {
+    $indiceDepart = ($taillePage*$page) - $taillePage;
+    $indiceArriver = $indiceDepart + $taillePage - 1;
+    $arrayPaged = [];
+ 
+    for ($i=$indiceDepart; $i< count($arrayPersonne); $i++){
+        if ($indiceArriver < count($arrayPersonne)) {
+            array_push($arrayPaged, $arrayPersonne[$i]);
+            if ($i == $indiceArriver) {
+                break;
+            }
+        }else {
+            array_push($arrayPaged, $arrayPersonne[$i]);
+        }
+    }
+    return $arrayPaged;
+ }
+ function getListToDisplay1(array $arrayPersonne, $page, $taillePage) {
+    $indiceDepart = ($taillePage*$page) - $taillePage;
+    $indiceArriver = $indiceDepart + $taillePage - 1;
+    $arrayPaged = [];
+ 
+    for ($i=$indiceDepart; $i< count($arrayPersonne); $i++){
+        if ($indiceArriver < count($arrayPersonne)) {
+            array_push($arrayPaged, $arrayPersonne[$i]);
+            if ($i == $indiceArriver) {
+                break;
+            }
+        }else {
+            array_push($arrayPaged, $arrayPersonne[$i]);
+        }
+    }
+    return $arrayPaged;
+ }

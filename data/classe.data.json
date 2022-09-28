@@ -1,1 +1,42 @@
-[{"controller":"classeController","action":"creer_classe","id":"6329e866e74c9","libelle":"L1 Marketing Digital","filiere":"Marketing Digital","niveau":"Licence1"},{"controller":"classeController","action":"creer_classe","id":"632e1d3968261","libelle":"L2 DEV WEB","filiere":"D\u00e9veloppement web et mobile","niveau":"Licence2"},{"controller":"classeController","action":"creer_classe","id":"632e1ddfee874","libelle":"Bureautique","filiere":"Powerpoint","niveau":"Licence1"},{"libelle":"L1 R\u00e9seau","filiere":"Reseau","niveau":"Licence1","id":"632ee88a0ae0c"},{"libelle":"DEV WEB2","filiere":"D\u00e9veloppement web et mobile","niveau":"Licence2","id":"632f1a08b128e"},{"libelle":"L2 MD","filiere":"Marketing Digital","niveau":"Licence2","id":"63305b1eb8e01"}]
+[
+    {
+        "controller": "classeController",
+        "action": "creer_classe",
+        "id": "6329e866e74c9",
+        "libelle": "L1 Marketing Digital",
+        "filiere": "Marketing Digital",
+        "niveau": "Licence1"
+    },
+    {
+        "libelle": "L1 R\u00e9seau",
+        "filiere": "Reseau",
+        "niveau": "Licence1",
+        "id": "632ee88a0ae0c"
+    },
+    {
+        "controller": "classeController",
+        "action": "creer_classe",
+        "id": "632f1a08b128e",
+        "libelle": "L1 DEV WEB",
+        "filiere": "D\u00e9veloppement web et mobile",
+        "niveau": "Licence1"
+    },
+    {
+        "libelle": "L2 MD",
+        "filiere": "Marketing Digital",
+        "niveau": "Licence2",
+        "id": "63305b1eb8e01"
+    },
+    {
+        "libelle": "L2 DEV WEB",
+        "filiere": "D\u00e9veloppement web et mobile",
+        "niveau": "Licence2",
+        "id": "6333570dbe2ff"
+    },
+    {
+        "libelle": "L3 DEV WEB",
+        "filiere": "D\u00e9veloppement web et mobile",
+        "niveau": "Licence3",
+        "id": "6333573d4a30e"
+    }
+]

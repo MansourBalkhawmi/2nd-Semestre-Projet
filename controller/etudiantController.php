@@ -13,10 +13,18 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
             $etudiants = [];
             if(isset($_GET["matricule"])) {
                 $etudiants = get_list_etudiant_by_matricule($_GET["matricule"]);
+                require_once(ROUTE_DIR.'vue/ATTACHE/listeretudiant1.html.php');
             }else {
-                $etudiants = get_list_etudiant();
+                $page = 1;
+            if (isset($_GET["page"])) {
+                $page = intval($_GET["page"]);
             }
-             require_once(ROUTE_DIR.'vue/ATTACHE/listeretudiant.html.php');
+                $etudiants = get_list_etudiant();
+                 $totalPage=countpage(5, $etudiants);
+            $etudiants= getListToDisplay3($etudiants, $page , 5);
+                require_once(ROUTE_DIR.'vue/ATTACHE/listeretudiant.html.php');
+            }
+            
         }elseif ($_GET['view'] == "deletee") {
             if(isset($_GET['id'])){
                 delete_etudiant($_GET['id']);
@@ -63,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
                             "anneescolaire" => $anneescolaire,
                             "classe" => $classe,
                             "date" => date('Y-m-d H:i:s'),
-                            "matricule" =>uniqid(),
+                            "matricule" =>$matricule,
                             "id" =>$id,
                         ];
                         modification_etudiant($etudiant);

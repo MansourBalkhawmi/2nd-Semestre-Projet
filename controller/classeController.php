@@ -7,14 +7,26 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
         }elseif ($_GET['view'] == "creerclasse") {
             require_once(ROUTE_DIR.'vue/ADMIN/creerclasse.html.php');
         } elseif ($_GET['view'] == "listerclasse") {
+            $page = 1;
+            if (isset($_GET["page"])) {
+                $page = intval($_GET["page"]);
+            }
             $classes = get_list_classe();
+            $totalPage=countpage(5, $classes);
+         $classes= getListToDisplay($classes, $page , 5);
             require_once(ROUTE_DIR.'vue/ADMIN/listerclasse.html.php');
         } elseif ($_GET['view'] == "ajoutermodule") {
             require_once(ROUTE_DIR.'vue/ADMIN/ajoutermodule.html.php');
         }elseif ($_GET['view'] == "succes1") {
             require_once(ROUTE_DIR.'vue/ADMIN/ajoutermodule1.html.php');
         }elseif ($_GET['view'] == "voiremodule") {
+            $page = 1;
+            if (isset($_GET["page"])) {
+                $page = intval($_GET["page"]);
+            }
             $modules = get_list_module();
+            $totalPage=countpage(5, $modules);
+            $modules= getListToDisplay1($modules, $page , 5);
             require_once(ROUTE_DIR.'vue/ADMIN/voirmodule.html.php');
         } elseif ($_GET['view'] == "ajouterprof") {
             $classes = get_list_classe();
@@ -25,7 +37,13 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
             $modules = get_list_module();
             require_once(ROUTE_DIR.'vue/ADMIN/ajouterprof1.html.php');
         } elseif ($_GET['view'] == "voirprof") {
+            $page = 1;
+            if (isset($_GET["page"])) {
+                $page = intval($_GET["page"]);
+            }
             $profs = get_list_prof();
+            $totalPage=countpage(5, $profs);
+            $profs= getListToDisplay1($profs, $page , 5);
             require_once(ROUTE_DIR.'vue/ADMIN/voirprof.html.php');
         }elseif ($_GET['view'] == "deleted") {
             if(isset($_GET['id'])){

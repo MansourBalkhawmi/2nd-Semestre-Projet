@@ -25,11 +25,12 @@ if (isset($_SESSION['arrayError'])) {
 		<input type="hidden" name="controller" value="etudiantController">
         <input type="hidden" name="action" value="inscrit">
         <input type="hidden" name="id" value="<?=isset($etudiant['id']) ? $etudiant['id'] : '' ?>">
+        <input type="hidden" name="matricule" value="<?=isset($etudiant['matricule']) ? $etudiant['matricule'] : '' ?>">
         
 
 <h1>Inscription</h1>
 <div class="matri">
-<input class="matri1" type="text" name="search" placeholder="Saisir le Matricule" id=""><button class="bt"><i class=" sear fa-sharp fa-solid fa-magnifying-glass"></i></button>
+<input class="matri1" type="text" name="search" placeholder="Saisir le Matricule" id=""><button class="bt"><i class=" sear fa-sharp fa-solid fa-magnifying-glass" title="Filtrer"></i></button>
 </div>
 <div class="form_input">
     <label for="" >Nom Complet Etudiant</label>
@@ -100,8 +101,20 @@ if (isset($_SESSION['arrayError'])) {
 <div class="form_input1">
     <label for="">La Classe inscrit</label> <br>
     <?php foreach ($classes as $key => $val):?>
+        <?php $check = false ?>
+        <?php foreach ($etudiant['classe'] as $classe ):?>
+            <?php if($classe == $val['libelle']):?>
+                <?php $check = true ?>
+   
+     <?php endif;?>
+    <?php endforeach;?>
+    <?php if($check == true):?>
+    <?php echo $val['libelle'];?>
+     <input type="checkbox" checked name="classe[]" value="<?=$val['libelle'];?>"  id=""><br>
+     <?php else:?>
         <?php echo $val['libelle'];?>
-     <input type="checkbox" name="classe[]" value="<?=$val['libelle'];?>" id=""><br>
+     <input type="checkbox"  name="classe[]" value="<?=$val['libelle'];?>"  id=""><br>
+     <?php endif;?>
     <?php endforeach;?>
      <main><?php echo isset($arrayError['classe']) ? $arrayError['classe'] : '' ?></main>
 </div>

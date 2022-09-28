@@ -80,3 +80,21 @@ function modification_etudiant(array $etudiant){
     }
     ajouter_fichier_etudiant($modif_etudiant);
 }
+
+function getListToDisplay3(array $arrayPersonne, $page, $taillePage) {
+    $indiceDepart = ($taillePage*$page) - $taillePage;
+    $indiceArriver = $indiceDepart + $taillePage - 1;
+    $arrayPaged = [];
+ 
+    for ($i=$indiceDepart; $i< count($arrayPersonne); $i++){
+        if ($indiceArriver < count($arrayPersonne)) {
+            array_push($arrayPaged, $arrayPersonne[$i]);
+            if ($i == $indiceArriver) {
+                break;
+            }
+        }else {
+            array_push($arrayPaged, $arrayPersonne[$i]);
+        }
+    }
+    return $arrayPaged;
+ }

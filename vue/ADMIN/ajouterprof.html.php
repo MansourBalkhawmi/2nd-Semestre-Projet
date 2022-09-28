@@ -63,21 +63,44 @@ if (isset($_SESSION['arrayError'])) {
   </select><br>
   <main><?php echo isset($arrayError['grade']) ? $arrayError['grade'] : '' ?></main>
 </div>
+
 <div class="form_input1">
     <label for="">La Classe afectée</label> <br>
     <?php foreach ($classes as $key => $val):?>
+        <?php $check = false ?>
+        <?php foreach ($prof['classe'] as $classe ):?>
+            <?php if($classe == $val['libelle']):?>
+                <?php $check = true ?>
+   
+     <?php endif;?>
+    <?php endforeach;?>
+    <?php if($check == true):?>
+    <?php echo $val['libelle'];?>
+     <input type="checkbox" checked name="classe[]" value="<?=$val['libelle'];?>"  id=""><br>
+     <?php else:?>
         <?php echo $val['libelle'];?>
-     <input type="checkbox" name="classe[]" value="<?=$val['libelle'];?>"  id=""><br>
-     
+     <input type="checkbox"  name="classe[]" value="<?=$val['libelle'];?>"  id=""><br>
+     <?php endif;?>
     <?php endforeach;?>
      <main><?php echo isset($arrayError['classe']) ? $arrayError['classe'] : '' ?></main>
 </div>
+
 <div class="form_input1">
     <label for="">Module du Prof</label> <br>
-    <?php foreach ($modules as $key => $val):?> 
+    <?php foreach ($modules as $key => $val):?>
+        <?php $check = false ?>
+        <?php foreach ($prof['module'] as $module ):?>
+            <?php if($module == $val['libelmodule']):?>
+                <?php $check = true ?>
+    <?php endif;?>
+    <?php endforeach;?>
+    <?php if($check == true):?>
+        <?php echo $val['libelmodule'];?>
+     <input type="checkbox" checked name="module[]" value="<?=$val['libelmodule'];?>" id=""><br>
+     <?php else:?>
         <?php echo $val['libelmodule'];?>
      <input type="checkbox" name="module[]" value="<?=$val['libelmodule'];?>" id=""><br>
-
+     <?php endif;?>
     <?php endforeach;?>
      <main><?php echo isset($arrayError['module']) ? $arrayError['module'] : '' ?></main>
 </div>

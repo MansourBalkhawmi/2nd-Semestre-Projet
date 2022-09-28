@@ -28,8 +28,8 @@
                         <td><?php foreach ($val['classe'] as $key => $clas):?><?php echo $clas?>-<?php endforeach;?></td>
                         <td><?php foreach ($val['module'] as $key => $mod):?><?php echo $mod?>-<?php endforeach;?></td>
                             <td>
-                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=editep&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square"></i></a>
-                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=deletep&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=editep&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square" title="Modifier"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=classeController&view=deletep&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash" ></i></a>
                         </td>
                     </tr>
                 
@@ -37,6 +37,35 @@
                 <?php endforeach;?>
             </table>
          <?php endif;?>
+         <div  class="pagination">
+   <?php for($i = 1; $i <= $totalPage; $i++):?>
+       <a href="<?= WEB_ROUTE.'/?controller=classeController&view=voirprof&page='.$i.''?>">
+     <button class="mm"><?php echo $i; ?></button> 
+   </a>
+       <?php endfor;?>
+
+       </div>
+       </div>  
+       <style>
+        .mm{
+       width: 5vh;
+       background-color: #957000;
+       color:black;
+       margin: 5px;
+        } 
+        .mm:hover{
+       background-color: #0D0B68;
+       color:#ffffff;
+       margin: 5px;
+        } 
+        .pagination{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+       </style>
 </div>
 </body>
 </html>

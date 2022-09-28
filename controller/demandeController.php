@@ -6,11 +6,23 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
             $etudiants=get_list_etudiant(); 
             require_once(ROUTE_DIR.'vue/ADMIN/ajouterdemande.html.php');
         } elseif ($_GET['view'] == "listerdemande") {
+            $page = 1;
+            if (isset($_GET["page"])) {
+                $page = intval($_GET["page"]);
+            }
             $demandes= get_list_demande();
             $etudiants=get_list_etudiant(); 
+            $totalPage=countpage(5, $demandes);
+            $demandes= getListToDisplay2($demandes, $page , 5);
             require_once(ROUTE_DIR.'vue/ADMIN/listerdemande.html.php');
         }elseif ($_GET['view'] == "1listerdemande") {
+            $page = 1;
+            if (isset($_GET["page"])) {
+                $page = intval($_GET["page"]);
+            }
             $demandes= get_list_demande();
+            $totalPage=countpage(5, $demandes);
+            $demandes= getListToDisplay2($demandes, $page , 5);
             require_once(ROUTE_DIR.'vue/ATTACHE/listerdemande.html.php');
         }elseif ($_GET['view'] == "edite") {
             $demande=get_demande_by_id($_GET['id']);

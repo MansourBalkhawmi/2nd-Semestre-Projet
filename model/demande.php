@@ -64,3 +64,21 @@ function modification_demande(array $demande){
     }
     ajouter_fichier_demande($modif_demande);
 }
+
+function getListToDisplay2(array $arrayPersonne, $page, $taillePage) {
+    $indiceDepart = ($taillePage*$page) - $taillePage;
+    $indiceArriver = $indiceDepart + $taillePage - 1;
+    $arrayPaged = [];
+ 
+    for ($i=$indiceDepart; $i< count($arrayPersonne); $i++){
+        if ($indiceArriver < count($arrayPersonne)) {
+            array_push($arrayPaged, $arrayPersonne[$i]);
+            if ($i == $indiceArriver) {
+                break;
+            }
+        }else {
+            array_push($arrayPaged, $arrayPersonne[$i]);
+        }
+    }
+    return $arrayPaged;
+ }

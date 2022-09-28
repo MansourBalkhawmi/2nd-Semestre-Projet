@@ -14,9 +14,9 @@ body{
     display: flex;
     flex-wrap:wrap ;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around   ;
     width: 69.2%;
-    height: 40vh;
+    height: 65vh;
 }
 h1{
     color: #0D0B68;
@@ -25,7 +25,8 @@ h1{
 }
 table{
     border: 1px solid;
-    width: 80%;
+    width: 90%;
+    height: 25vh;
     border-collapse: collapse;
 }
 tr{
@@ -35,11 +36,11 @@ tr{
 th{
     background-color: #0D0B68;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 17px;
 }
 td{
     border: 2px solid #957000;
-    font-size: 12px;
+    font-size: 16px;
     padding: 2px;
 }
 .es{

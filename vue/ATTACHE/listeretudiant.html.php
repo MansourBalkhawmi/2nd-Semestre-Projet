@@ -16,7 +16,7 @@
         <div class="matri">
     <input type="hidden" name="controller" value="etudiantController">
     <input type="hidden" name="action" value="search">
-<input class="matri1" type="text" name="matricule" placeholder="Saisir le Matricule" id=""><button type="submit" name="search" ><i class=" sear fa-sharp fa-solid fa-magnifying-glass"></i></button>
+<input class="matri1" type="text" name="matricule" placeholder="Saisir le Matricule" id=""><button type="submit" name="search" ><i class=" sear fa-sharp fa-solid fa-magnifying-glass" title="Filtrer"></i></button>
 </div>
 </form>
      <?php if(!empty($etudiants)): ?>
@@ -40,14 +40,43 @@
                             <td><?php echo $val['anneescolaire'];?></td>
                         <td><?php echo $val['date'];?></td>
                         <td>
-                        <a href="<?= WEB_ROUTE.'/?controller=etudiantController&view=editee&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square"></i></a>
-                        <a href="<?= WEB_ROUTE.'/?controller=etudiantController&view=deletee&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=etudiantController&view=editee&id='.$val['id']?>" style="margin: 2vh;"><i class=" es fa-solid fa-pen-to-square" title="Modifier"></i></a>
+                        <a href="<?= WEB_ROUTE.'/?controller=etudiantController&view=deletee&id='.$val['id']?>"><i class=" es1 fa-solid fa-trash" title="Supprimer"></i></a>
                         </td>
                     </tr>
                     <?php endforeach;?>
                 <?php endforeach;?>
             </table>
          <?php endif;?>
+         <div  class="pagination">
+   <?php for($i = 1; $i <= $totalPage; $i++):?>
+       <a href="<?= WEB_ROUTE.'/?controller=etudiantController&view=listeretudiant&page='.$i.''?>">
+     <button class="mm"><?php echo $i; ?></button> 
+   </a>
+       <?php endfor;?>
+
+       </div>
+       </div>  
+       <style>
+        .mm{
+       width: 5vh;
+       background-color: #957000;
+       color:black;
+       margin: 5px;
+        } 
+        .mm:hover{
+       background-color: #0D0B68;
+       color:#ffffff;
+       margin: 5px;
+        } 
+        .pagination{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+       </style>
 </div>
 </body>
 </html>
