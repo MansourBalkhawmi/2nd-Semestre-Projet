@@ -88,11 +88,11 @@ if (isset($_SESSION['arrayError'])) {
   </select>
   <main><?php echo isset($arrayError['anneescolaire']) ? $arrayError['anneescolaire'] : '' ?></main>
 </div>
-<div class="form_input1">
+div class="form_input1">
     <label for="">La Classe inscrit</label> <br>
     <?php foreach ($classes as $key => $val):?>
         <?php $check = false ?>
-        <?php foreach ($etudiant['classe'] as $classe ):?>
+        <?php foreach ($etudiant as $classe ):?>
             <?php if($classe == $val['libelle']):?>
                 <?php $check = true ?>
    
@@ -100,13 +100,13 @@ if (isset($_SESSION['arrayError'])) {
     <?php endforeach;?>
     <?php if($check == true):?>
     <?php echo $val['libelle'];?>
-     <input type="radio" checked name="classe[]" value="<?=$val['libelle'];?>"  id=""><br>
+     <input type="radio" checked name="classe" value="<?=$val['libelle'];?>"  id=""><br>
      <?php else:?>
         <?php echo $val['libelle'];?>
-     <input type="radio"  name="classe[]" value="<?=$val['libelle'];?>"  id=""><br>
+     <input type="radio"  name="classe" value="<?=$val['libelle'];?>"  id=""><br>
      <?php endif;?>
     <?php endforeach;?>
-     <main><?php echo isset($arrayError['classe']) ? $arrayError['classe'] : '' ?></main>
+     <main><?php echo isset($arrayError['classe']) ? $arrayError['libelle'] : '' ?></main>
 </div>
 <button type="submit" name="inscrit" value="inscrit">Réinscription</button>
 </form>

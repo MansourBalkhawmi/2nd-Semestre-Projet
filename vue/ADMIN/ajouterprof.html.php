@@ -68,8 +68,8 @@ if (isset($_SESSION['arrayError'])) {
     <label for="">La Classe afectée</label> <br>
     <?php foreach ($classes as $key => $val):?>
         <?php $check = false ?>
-        <?php foreach ($prof['classe'] as $classe ):?>
-            <?php if($classe == $val['libelle']):?>
+        <?php foreach ($prof['classe'] as $proff ):?>
+            <?php if($proff == $val['libelle']):?>
                 <?php $check = true ?>
    
      <?php endif;?>

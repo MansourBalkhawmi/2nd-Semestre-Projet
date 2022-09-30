@@ -31,11 +31,10 @@
                     <th>Action</th>
                 </tr>
                 <?php foreach ($etudiants as $key => $val):?>
-                <?php foreach ($val['classe'] as $key => $clas):?>
                     <tr>
                         <td><?php echo $val['matricule'];?></td>
                         <td><?php echo $val['nom_complet'];?></td>
-                        <td><?php foreach ($val['classe'] as $key => $clas):?><?php echo $clas?>-<?php endforeach;?></td>
+                        <td><?php echo $val['classe'];?></td>
                             <td><?php echo $val['sexe'];?></td>
                             <td><?php echo $val['anneescolaire'];?></td>
                         <td><?php echo $val['date'];?></td>
@@ -45,7 +44,6 @@
                         </td>
                     </tr>
                     <?php endforeach;?>
-                <?php endforeach;?>
             </table>
          <?php endif;?>
          <div  class="pagination">
