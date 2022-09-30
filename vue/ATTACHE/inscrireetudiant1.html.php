@@ -23,45 +23,37 @@ if (isset($_SESSION['arrayError'])) {
 
 <form method="POST" action="<?php echo WEB_ROUTE ?>">
 		<input type="hidden" name="controller" value="etudiantController">
-        <input type="hidden" name="action" value="inscrit"> 
-        <input type="hidden" name="id" value="<?=isset($etudiant['id']) ? $etudiant['id'] : '' ?>">
-        <input type="hidden" name="matriculeedit" value="<?=isset($etudiant['matricule']) ? $etudiant['matricule'] : '' ?>">
+        <input type="hidden" name="action" value="inscrit">
+
 <h1>Inscription</h1>
-<div class="matri">
-<input class="matri1" type="text" name="matricule" placeholder="Saisir le Matricule" id=""><button type="submit" name="search1" value="search1" class="bt"><i class=" sear fa-sharp fa-solid fa-magnifying-glass" title="Filtrer"></i></button>
-</div>
 <div class="form_input">
     <label for="" >Nom Complet Etudiant</label>
-     <input type="text" name="nom_complet" value="<?=isset($etudiant['nom_complet']) ? $etudiant['nom_complet'] : '' ?>" >
+     <input type="text" name="nom_complet" value="<?=isset($etudiants['0']['nom_complet']) ? $etudiants['0']["nom_complet"] : '' ?>"   >
      <main><?php echo isset($arrayError['nom_complet']) ? $arrayError['nom_complet'] : '' ?></main>
 </div>
 <div class="form_input">
     <label for="">Téléphone</label>
-     <input type="text" name="telephone" value="<?=isset($etudiant['telephone']) ? $etudiant['telephone'] : '' ?>" >
+     <input type="text" name="telephone" value="<?=isset($etudiants["0"]['telephone']) ? $etudiants["0"]['telephone'] : '' ?>"  >
      <main><?php echo isset($arrayError['telephone']) ? $arrayError['telephone'] : '' ?></main>
 </div>
 <div class="form_input">
     <label for="">Adresse</label>
-     <input type="text" name="adresse" value="<?=isset($etudiant['adresse']) ? $etudiant['adresse'] : '' ?>" >
+     <input type="text" name="adresse" value="<?=isset($etudiants["0"]['adresse']) ? $etudiants["0"]['adresse'] : '' ?>"  >
      <main><?php echo isset($arrayError['adresse']) ? $arrayError['adresse'] : '' ?></main>
 </div>
 <div class="form_input2">
     <label for="" >Genre</label> 
-    <?php if($etudiant["sexe"] == "Masculin"): ?>
-            <select name="sexe" id="sexe">
+    <?php if($etudiants["0"]["sexe"] == "Masculin"): ?>
+            <select name="sexe" id="sexe" >
            <option value="Masculin"  selected >Masculin</option>
        </select>
 <?php endif?>
- <?php if($etudiant["sexe"] == "Feminin"): ?>
-    <select name="sexe" id="sexe" >
+ <?php if($etudiants["0"]["sexe"] == "Feminin"): ?>
+    <select name="sexe" id="sexe">
            <option value="Feminin" selected >Feminin</option>
        </select>
  <?php endif?>
-    <select name="sexe" id="">
-    <option value="Choisir le genre">Choisir Année</option>
-    <option value="Masculin">Masculin</option>
-    <option value="Feminin">Feminin</option>
-  </select>
+    
   <main><?php echo isset($arrayError['anneescolaire']) ? $arrayError['anneescolaire'] : '' ?></main>
 </div>
 <div class="form_input2">
@@ -116,7 +108,7 @@ if (isset($_SESSION['arrayError'])) {
     <?php endforeach;?>
      <main><?php echo isset($arrayError['classe']) ? $arrayError['classe'] : '' ?></main>
 </div>
-<button type="submit" name="inscrit" value="inscrit">Création</button>
+<button type="submit" name="inscrit" value="inscrit">Réinscription</button>
 </form>
 </div>
 </body>

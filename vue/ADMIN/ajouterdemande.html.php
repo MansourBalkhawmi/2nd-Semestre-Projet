@@ -37,7 +37,7 @@ if (isset($_SESSION['arrayError'])) {
            <option value="Accepter"  selected >Accepter</option>
        </select>
 <?php endif?>
- <?php if($demande["etat"] == "Traitement"): ?>
+ <?php if($demande["etat"] == "En Traitement"): ?>
     <select name="etat" id="etat" >
            <option value="Traitement" selected >Traitement</option>
           
@@ -57,12 +57,15 @@ if (isset($_SESSION['arrayError'])) {
   <main><?php echo isset($arrayError['etat']) ? $arrayError['etat'] : '' ?></main>
 </div>
 <div class="form_input1">
+  
     <label for="" >Proprieté du Demande</label> 
-    <?php if($demande["etudiant"] == "nom_complet"): ?>
+    <?php foreach ($etudiants as $key => $etu):?>
+<?php if($demande["etudiant"] == $etu['nom_complet']): ?>
     <select name="etudiant" id="etudiant">
-           <option value="<?=$etu['nom_complet']?>" selected><?php echo $etu['nom_complet']?></option>
+           <option value="<?=$etu['nom_complet']?>"selected><?php echo $etu['nom_complet']?></option>
        </select>
-  <?php endif?>
+       <?php endif?>
+       <?php endforeach?>
     <select name="etudiant" id="" >
     <option value="Choisir"> Choisir l'étudiant</option>
     <?php foreach ($etudiants as $key => $etu):?>

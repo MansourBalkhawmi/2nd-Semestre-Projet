@@ -20,7 +20,7 @@ Bienvenue Cher ATTACHÉ Pédagogique
 </header> 
 <article>
     <div class="logo"><img src="images/logo1.png" alt=""></div>
-    <div class="nav"><a href="<?php echo WEB_ROUTE.'?controller=formController&view=attache'?>"><i class="tbord fa-sharp fa-solid fa-gauge"></i> Tableau de Bord</a></div>
+    <div class="nav" style="font-size: 17px;"><a href="<?php echo WEB_ROUTE.'?controller=formController&view=attache'?>"><i class="tbord fa-sharp fa-solid fa-gauge"></i> Tableau de Bord</a></div>
     <div class="dropdown">
       <button class="dropbtn"><i class="ic fa-solid fa-users"></i> Gestion Etudiants</button>
       <div id="myDropdown" class="dropdown-content">

@@ -13,9 +13,7 @@
 <div class="creer">
     <h1>Liste Etudiant</h1>
     <form action="<?= WEB_ROUTE?>" method="post" class="form">
-        <div class="matri">
-<input class="matri1" type="text" name="matricule" placeholder="Saisir le Matricule" id=""> <a href="<?= WEB_ROUTE.'/?controller=etudiantController&view=matri&matricule='.$val['matricule']?>"><i class=" sear fa-sharp fa-solid fa-magnifying-glass"></i></a>
-</div>
+       
 </form>
      <?php if(!empty($etudiants)): ?>
             <table>

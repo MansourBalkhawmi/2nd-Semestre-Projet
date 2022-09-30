@@ -4,10 +4,23 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
     if (isset($_GET['view'])) {
         if ($_GET['view'] == "inscrireetudiant") {
             $classes = get_list_classe();
+            
+            $etudiants = [];
+            if(isset($_GET["matricule"])) {
+                $etudiants = get_list_etudiant_by_matricule($_GET["matricule"]);
+                $etudiants[0]["matricule"];
+            if(isset($etudiants) && count($etudiants)>0){
+                require_once(ROUTE_DIR.'vue/ATTACHE/inscrireetudiant1.html.php');
+            }else{
+                require_once(ROUTE_DIR.'vue/ATTACHE/inscrireetudiant.html.php');
+            }
+            }else {
             require_once(ROUTE_DIR.'vue/ATTACHE/inscrireetudiant.html.php');
-        }elseif ($_GET['view'] == "succes") {
+        }
+    }elseif ($_GET['view'] == "succes") {
             $classes = get_list_classe();
             require_once(ROUTE_DIR.'vue/ATTACHE/inscrireetudiant1.html.php');
+
         }elseif ($_GET['view'] == "listeretudiant") {
             $etudiants = get_list_etudiant();
             $etudiants = [];
@@ -30,6 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
                 delete_etudiant($_GET['id']);
             }
             header("location:".WEB_ROUTE."?controller=etudiantController&view=listeretudiant");
+
         }elseif ($_GET['view'] == "editee") {
             $classes = get_list_classe();
             $etudiant=get_etudiant_by_id($_GET['id']);
@@ -41,14 +55,23 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
 }elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['action'])) {
        if ($_POST['action'] == "inscrit") {
+        if(isset($_POST['inscrit']) && $_POST['inscrit']== "inscrit"){
         inscrire($_POST);
+    }else {
+        $matricule = $_POST['matricule'];
+        header("Location:".WEB_ROUTE."?controller=etudiantController&view=inscrireetudiant&matricule=".$matricule);
+    }
     } elseif ($_POST['action'] == "search") {
         $matricule = $_POST["matricule"];
         header("Location:".WEB_ROUTE."?controller=etudiantController&view=listeretudiant&matricule=".$matricule);
+    }elseif ($_POST['action'] == "inscrite") {
+        inscrire($_POST);
     }
 }
+
 }
-    function inscrire($data) {
+    
+function inscrire($data) {
     
         $arrayError = [];
         extract($data);
@@ -71,9 +94,10 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
                             "anneescolaire" => $anneescolaire,
                             "classe" => $classe,
                             "date" => date('Y-m-d H:i:s'),
-                            "matricule" =>$matricule,
+                            "matricule" =>$matriculeedit,
                             "id" =>$id,
                         ];
+                        //var_dump($data);die;
                         modification_etudiant($etudiant);
                       
                     }else{
@@ -90,9 +114,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
                         "id" =>uniqid(),
                     ];
                     addEtudiant($etudiant);
-                    }
-                    
-                    
+                }
                     header("location:".WEB_ROUTE."?controller=etudiantController&view=listeretudiant");
                 } else {
                     $_SESSION['arrayError'] = $arrayError;

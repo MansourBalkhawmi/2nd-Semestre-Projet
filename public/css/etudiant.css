@@ -116,3 +116,25 @@ main{
     width: 4vh;
     border: none;
 }
+
+@media (max-width:800px) {
+    .creer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-around;
+        width: 69.2%;
+        height: 83vh;
+    }
+    form{
+        padding: 2px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width:80vh;
+        height: 82vh;
+        color: black;
+    }
+
+}
